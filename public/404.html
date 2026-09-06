@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dweep Vartak</title>
+    <script>
+      /* GitHub Pages has no server-side rewrite, so a direct load of
+         /work/vision-agents 404s. This bounces the path through the query
+         string to index.html, where the snippet in index.html restores it.
+         Harmless on Vercel/Netlify, which rewrite properly on their own. */
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.host + '/?redirect=' +
+        encodeURIComponent(l.pathname + l.search + l.hash)
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,77 @@
+.NavBar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 26px clamp(22px, 5vw, 40px) 0;
+  position: relative;
+  z-index: 6;
+}
+
+.logo-link { text-decoration: none; border: 0; }
+
+.logo {
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 40;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.12s ease;
+}
+.logo:active { transform: scale(0.93); }
+.logo .dot { color: var(--accent); }
+
+.NavBar-links {
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  display: flex;
+  gap: clamp(16px, 4vw, 34px);
+}
+
+.NavBar-links a {
+  color: var(--ink-2);
+  font-size: 15px;
+  position: relative;
+  display: inline-block;
+  padding: 3px 4px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.NavBar-links a:hover { color: var(--ink); }
+
+.scribble {
+  position: absolute;
+  left: -9px;
+  top: -8px;
+  width: calc(100% + 18px);
+  height: calc(100% + 16px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.scribble path {
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.05;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.35, 0.75, 0.4, 1);
+}
+.NavBar-links a:hover .scribble path { stroke-dashoffset: 0; }
+.NavBar-links a .scribble path:nth-child(2) { transition-delay: 0.14s; }
+
+.s-teal  { stroke: #2E7D7D; }
+.s-brick { stroke: #9A4A46; }
+.s-blue  { stroke: #3D6E8C; }
+.s-ochre { stroke: #B5763A; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scribble path { transition: none; }
+}
