@@ -18,10 +18,10 @@ const SAYS = [
   '*tail intensifies*',
   'biscuit?',
   'hire him',
-  '*thump thump thump*',
-  'doing my best',
-  '10/10 would nap',
-  '*sighs professionally*',
+  'woof woof',
+  'hire him',
+  'woof woof woof',
+  'happy happy',
   'zzz',
 ];
 
