@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import './css/App.css';
 import NavBar from './components/NavBar';
 import Tuppy from './components/Tuppy';
-import ground from './assets/ground.png';
+import ground from './assets/ground.svg';
 import Home from './routes/Home';
 import ProjectPage from './routes/ProjectPage';
 

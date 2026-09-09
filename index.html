@@ -27,10 +27,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script
-      type="module"
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "5c552f01dbde4b25b59afa7b8cdea673"}'
-    ></script>
+    <script>
+      if (location.hostname === "dweepvartak.github.io") {
+        var b = document.createElement("script");
+        b.type = "module";
+        b.src = "https://static.cloudflareinsights.com/beacon.min.js";
+        b.setAttribute(
+          "data-cf-beacon",
+          '{"token": "5c552f01dbde4b25b59afa7b8cdea673"}'
+        );
+        document.body.appendChild(b);
+      }
+    </script>
   </body>
 </html>

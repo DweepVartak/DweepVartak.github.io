@@ -376,31 +376,45 @@ section p b {
   z-index: 2;
 }
 
+/* Tuppy's footing is derived, not guessed, so it survives any window size.
+   In ground.svg the drawn line sits 44.05% down the viewBox, so it is
+   0.5595 x the band height above the bottom of the screen. Her frames are
+   520x377 and her body spans y2..y371, putting her vertical middle 0.3663 x
+   her width above the bottom of her own box. Setting those equal puts the
+   line through the middle of her. Her size is independent of the ground. */
+:root {
+  --ground-h: clamp(110px, 11vw, 150px);
+  --tuppy-w: clamp(118px, 16vw, 182px);
+  --tuppy-b: calc(var(--ground-h) * 0.5595 - var(--tuppy-w) * 0.3663);
+}
+
 .ground {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: -6px;
+  bottom: 0;
   z-index: 3;
   pointer-events: none;
 }
 .ground img {
+  display: block;
   width: 100%;
-  height: auto;
-  opacity: 0.85;
+  height: var(--ground-h);
 }
 
 .tuppy {
   position: fixed;
   right: clamp(-8px, 2vw, 44px);
-  bottom: 14px;
-  width: clamp(118px, 16vw, 182px);
+  bottom: var(--tuppy-b);
+  width: var(--tuppy-w);
   z-index: 4;
   cursor: pointer;
   user-select: none;
   transition: transform 0.25s ease;
 }
 .tuppy img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   -webkit-user-drag: none;
@@ -412,7 +426,7 @@ section p b {
 .bubble {
   position: fixed;
   z-index: 5;
-  bottom: calc(14px + clamp(118px, 16vw, 182px) * 0.6);
+  bottom: calc(var(--tuppy-b) + var(--tuppy-w) * 0.62);
   right: clamp(78px, 12vw, 146px);
   background: #fff;
   border: 1.5px solid var(--ink);
@@ -438,13 +452,14 @@ section p b {
 }
 
 @media (max-width: 640px) {
+  /* Only the band shrinks; width and footing follow from it automatically. */
+  :root {
+    --ground-h: 82px;
+  }
   .tuppy {
-    width: 112px;
     right: -4px;
-    bottom: 10px;
   }
   .bubble {
-    bottom: 78px;
     right: 70px;
     font-size: 14px;
   }
