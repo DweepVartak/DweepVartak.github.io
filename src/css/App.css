@@ -733,7 +733,8 @@ section p b {
 .role-strip figure:hover {
   transform: rotate(0deg) translateY(-3px);
 }
-.role-strip img {
+.role-strip img,
+.role-strip video {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;

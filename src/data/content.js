@@ -10,7 +10,6 @@ export const site = {
 };
 
 export const hero = {
-
   line1: "Hi.",
   line2a: "I'm ",
   line2b: "Dweep",
@@ -38,7 +37,7 @@ export const experience = [
     org: "INSPIRE Lab, SIDiS (Robotics Cluster), IIT Madras",
     desc: "Working on Deformation of Soft-body and its manipulation.",
 
-    img: { src: "work/inspire-lab1.jpg", cap: "ongoing" },
+    img: { src: "work/agilexINSPIRE.mp4", cap: "ongoing" },
   },
   {
     when: "Jan — Mar 2025",

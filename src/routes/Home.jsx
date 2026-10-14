@@ -97,7 +97,11 @@ export default function Home() {
 
                 {r.img && asset(r.img.src) && (
                   <figure className="role-shot polaroid">
-                    <img src={asset(r.img.src)} alt={r.img.cap || ''} loading="lazy" />
+                    {isVideo(r.img.src) ? (
+                      <video src={asset(r.img.src)} autoPlay muted loop playsInline />
+                    ) : (
+                      <img src={asset(r.img.src)} alt={r.img.cap || ''} loading="lazy" />
+                    )}
                     {r.img.cap && <figcaption>{r.img.cap}</figcaption>}
                   </figure>
                 )}
@@ -106,7 +110,11 @@ export default function Home() {
                   <div className="role-strip">
                     {r.imgs.filter((m) => asset(m.src)).map((m) => (
                       <figure key={m.src} className="polaroid">
-                        <img src={asset(m.src)} alt={m.cap || ''} loading="lazy" />
+                        {isVideo(m.src) ? (
+                          <video src={asset(m.src)} autoPlay muted loop playsInline />
+                        ) : (
+                          <img src={asset(m.src)} alt={m.cap || ''} loading="lazy" />
+                        )}
                         {m.cap && <figcaption>{m.cap}</figcaption>}
                       </figure>
                     ))}
